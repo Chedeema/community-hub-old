@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Community Education Hub</title>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Cormorant+Garamond:wght@600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f2f6f5;--sf:#fff;--ink:#14262b;--mut:#5a6e72;--ln:#d3dedc;--ac:#0f766e;--acx:#fff;--sg:#e8b100;--bad:#b42318;--ok:#18794e;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0e1a1d;--sf:#16272b;--ink:#e8f1f0;--mut:#9bb0b3;--ln:#2a3f44;--ac:#3fc1b3;--acx:#06201d;--sg:#f0c53a;--bad:#ff8a7a;--ok:#5dd39e}}
+:root[data-theme="dark"]{--bg:#0e1a1d;--sf:#16272b;--ink:#e8f1f0;--mut:#9bb0b3;--ln:#2a3f44;--ac:#3fc1b3;--acx:#06201d;--sg:#f0c53a;--bad:#ff8a7a;--ok:#5dd39e}
+*{box-sizing:border-box}html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 'Atkinson Hyperlegible',Verdana,Arial,sans-serif}
+header{padding:20px 20px 0;max-width:1000px;margin:auto}
+h1{font-size:1.6rem;margin:0 0 2px;letter-spacing:-.01em}h2{font-size:1.25rem;margin:0 0 6px}h3{font-size:1rem;margin:14px 0 6px}
+.sub{color:var(--mut);margin:0 0 14px}
+nav{display:flex;gap:6px;overflow-x:auto;padding:4px 20px 12px;max-width:1000px;margin:auto}
+nav button{flex:none;border:1px solid var(--ln);background:var(--sf);color:var(--ink);padding:9px 14px;border-radius:8px;font:inherit;cursor:pointer}
+nav button[aria-current=true]{background:var(--ac);color:var(--acx);border-color:var(--ac);font-weight:700}
+main{max-width:1000px;margin:auto;padding:0 20px 60px}
+.card{background:var(--sf);border:1px solid var(--ln);border-radius:10px;padding:16px;margin-bottom:14px}
+.row{display:flex;gap:10px;flex-wrap:wrap}.row>*{flex:1 1 150px}
+label{display:block;font-size:.85rem;color:var(--mut);margin-bottom:3px}
+input,select,textarea{width:100%;padding:9px;border:1px solid var(--ln);border-radius:6px;background:var(--bg);color:var(--ink);font:inherit}
+button.b{background:var(--ac);color:var(--acx);border:0;padding:9px 16px;border-radius:6px;font:inherit;font-weight:700;cursor:pointer}
+button.g{background:transparent;color:var(--ink);border:1px solid var(--ln);padding:6px 12px;border-radius:6px;font:inherit;cursor:pointer}
+button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid var(--sg);outline-offset:1px}
+.tag{display:inline-block;padding:1px 9px;border-radius:99px;font-size:.78rem;border:1px solid var(--ln);color:var(--mut)}
+.on{color:var(--ok);border-color:var(--ok)}.off{color:var(--bad);border-color:var(--bad)}
+.item{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:10px 0;border-top:1px solid var(--ln);flex-wrap:wrap}.item:first-child{border-top:0}
+.bar{height:12px;background:var(--bg);border:1px solid var(--ln);border-radius:6px;overflow:hidden}.bar i{display:block;height:100%;background:var(--ac)}.bar i.low{background:var(--bad)}
+.stat{font-size:1.9rem;font-weight:700;line-height:1.1}
+.alert{border-left:6px solid var(--sg);background:var(--sf);padding:12px 14px;border-radius:6px;margin-bottom:14px;border:1px solid var(--ln);border-left-width:6px}
+pre{white-space:pre-wrap;font:inherit;background:var(--bg);padding:12px;border-radius:8px;border:1px solid var(--ln)}
+.cert{border:4px double var(--ac);padding:26px;text-align:center;border-radius:6px}
+.mut{color:var(--mut)}
+@media print{nav,header,.noprint{display:none}body{background:#fff;color:#000}}
+:root[data-theme=dark]{--bg:#0a0f1e;--sf:#121a33;--ink:#eaf0ff;--mut:#9aa7cc;--ln:#27325f;--ac:#5eead4;--ac2:#38bdf8;--acx:#04201c;--sg:#fbbf24;--bad:#ff7a90;--ok:#4ade80;--g1:rgba(139,92,246,.28);--g2:rgba(94,234,212,.16);--sh:0 8px 30px rgba(0,0,0,.35)}
+:root[data-theme=light]{--bg:#f3f5ff;--sf:#fff;--ink:#111936;--mut:#59638c;--ln:#dce1f4;--ac:#4f46e5;--ac2:#7c3aed;--acx:#fff;--sg:#b97800;--bad:#c9254a;--ok:#12805c;--g1:rgba(124,58,237,.14);--g2:rgba(79,70,229,.08);--sh:0 8px 24px rgba(40,50,120,.10)}
+body{font-size:17px;background:radial-gradient(800px 480px at 90% -8%,var(--g1),transparent 70%),radial-gradient(700px 420px at -8% 4%,var(--g2),transparent 70%),var(--bg);background-attachment:fixed}
+header{display:flex;align-items:center;gap:14px;flex-wrap:wrap;padding-bottom:12px}header .t{flex:1 1 240px}
+h1{font-size:clamp(1.5rem,4vw,2.1rem)}.sub{margin:0}
+.logo{width:54px;height:54px;border-radius:16px;display:grid;place-items:center;font-size:1.7rem;background:linear-gradient(135deg,var(--ac),var(--ac2));box-shadow:0 0 26px var(--g1)}
+.pill{padding:5px 12px;border-radius:99px;border:1px solid var(--ln);background:var(--sf);font-size:.85rem;color:var(--ok);font-weight:700}
+nav{padding-bottom:16px}
+nav button{display:flex;flex-direction:column;align-items:center;gap:2px;flex:1 0 108px;padding:12px 10px;border-radius:16px;font-size:.95rem;transition:transform .15s,box-shadow .15s}
+nav .ic{font-size:1.7rem;line-height:1.2}nav button:hover{transform:translateY(-3px);box-shadow:var(--sh)}nav button:active{transform:scale(.96)}
+nav button[aria-current=true]{background:linear-gradient(135deg,var(--ac),var(--ac2));color:var(--acx);border-color:transparent;box-shadow:0 6px 24px var(--g1)}
+.tip{display:flex;gap:14px;align-items:center;padding:14px 18px;border-radius:18px;margin-bottom:16px;border:1px solid var(--ln);background:linear-gradient(120deg,var(--g1),var(--g2))}.tip .em{font-size:2rem}
+.card{border-radius:18px;box-shadow:var(--sh);transition:border-color .2s,transform .2s}.card:hover{border-color:var(--ac)}
+.stat{color:var(--ac);font-size:2.2rem}
+input,select,textarea{min-height:46px;border-radius:12px;font-size:1rem;transition:border-color .15s,box-shadow .15s}
+input:focus,select:focus{border-color:var(--ac);box-shadow:0 0 0 3px var(--g2)}
+input[type=radio]{width:22px;height:22px;min-height:0;accent-color:var(--ac);margin-right:8px;vertical-align:middle}
+button.b{min-height:46px;padding:10px 20px;border-radius:12px;font-size:1rem;background:linear-gradient(135deg,var(--ac),var(--ac2));box-shadow:0 4px 16px var(--g1);transition:transform .12s,filter .12s}
+button.b:hover{filter:brightness(1.1);transform:translateY(-1px)}button.b:active,button.g:active{transform:scale(.95)}
+button.g{min-height:40px;border-radius:12px;transition:border-color .15s,color .15s,transform .12s}button.g:hover{border-color:var(--ac);color:var(--ac)}
+.tag{padding:3px 11px;font-weight:700}.tag.on{background:rgba(74,222,128,.12)}.tag.off{background:rgba(255,122,144,.12)}
+.bar{height:14px;border-radius:99px}.bar i{background:linear-gradient(90deg,var(--ac),var(--ac2));transform-origin:left;animation:grow .9s cubic-bezier(.2,.8,.2,1)}.bar i.low{background:var(--bad)}@keyframes grow{from{transform:scaleX(0)}}
+.alert{border-radius:14px;box-shadow:var(--sh)}pre{border-radius:14px;line-height:1.7}
+.cert{border-radius:18px;background:linear-gradient(135deg,var(--g1),var(--g2))}
+#toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));transform:translate(-50%,20px);opacity:0;pointer-events:none;background:var(--sf);color:var(--ink);border:1px solid var(--ac);padding:12px 20px;border-radius:99px;box-shadow:var(--sh);font-weight:700;transition:all .25s;z-index:100;max-width:90vw;text-align:center}#toast.show{opacity:1;transform:translate(-50%,0)}
+.cf{position:fixed;top:-30px;font-size:24px;pointer-events:none;z-index:99;animation:fall 1.8s ease-in forwards}@keyframes fall{to{transform:translateY(110vh) rotate(540deg)}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+@media print{:root[data-theme]{--sf:#fff;--ink:#000;--bg:#fff;--mut:#444;--ln:#999;--g1:#fff;--g2:#fff}body{background:#fff!important}.tip,#toast{display:none}.card{box-shadow:none}}
+svg.i{flex:none;display:block}nav .ic{display:flex}.logo svg{color:var(--acx)}.tip .em{display:flex;color:var(--ac)}button.g{display:inline-flex;align-items:center;gap:8px}
+#toast{display:flex;align-items:center;gap:10px}#toast svg{color:var(--ac)}
+.chat{min-height:150px;max-height:440px;overflow:auto;margin:12px 0;display:flex;flex-direction:column;gap:10px;padding:4px}
+.msg{padding:10px 14px;border-radius:16px;max-width:92%;border:1px solid var(--ln);line-height:1.6}.msg.user{align-self:flex-end;background:linear-gradient(135deg,var(--g1),var(--g2))}.msg.assistant{align-self:flex-start;background:var(--bg)}.msg b.w{display:block;font-size:.8rem;color:var(--mut)}
+.chips{display:flex;gap:8px;flex-wrap:wrap}.chips button{flex:none}
+.crs{display:flex;flex-direction:column;gap:6px;text-align:left;padding:14px;border-radius:16px;border:1px solid var(--ln);background:var(--bg);color:var(--ink);font:inherit;cursor:pointer;flex:1 1 180px;transition:transform .12s,border-color .15s}.crs:hover{transform:translateY(-2px)}.crs[aria-pressed=true]{border-color:var(--ac);box-shadow:0 0 0 2px var(--g1)}.crs svg{color:var(--ac)}
+button.g[aria-pressed=true]{background:var(--ac);color:var(--acx);border-color:var(--ac)}
+.cert2{background:#fffdf8;color:#1b2440;padding:12px;border-radius:6px;font-family:'Cormorant Garamond',Georgia,serif;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.cert2 .in{border:3px solid #1b2440;outline:1px solid #b8892b;outline-offset:-9px;padding:34px 26px;text-align:center;background:radial-gradient(circle at 50% 0,#f7ecd0,transparent 60%),#fffdf8}
+.cert2 .brand{display:flex;justify-content:center;align-items:center;gap:10px;font:700 .9rem 'Atkinson Hyperlegible',sans-serif;letter-spacing:.25em}.cert2 .brand svg{color:#b8892b}
+.cert2 .ct{font-size:clamp(2.2rem,8vw,4rem);font-weight:700;letter-spacing:.16em;text-transform:uppercase;line-height:1.1;margin-top:14px}
+.cert2 .cs{font-size:1.25rem;letter-spacing:.35em;text-transform:uppercase;color:#b8892b;font-weight:700}
+.cert2 .pr{font-size:1.2rem;font-style:italic;margin:14px 0 4px;color:#4a5170}
+.cert2 .nm{font-family:'Great Vibes','Brush Script MT',cursive;font-size:clamp(2.4rem,9vw,4rem);border-bottom:2px solid #b8892b;display:inline-block;padding:0 26px;line-height:1.35}
+.cert2 .dt{font-size:1.1rem;margin:6px 0}.cert2 .cn{font-size:clamp(1.5rem,5vw,2.3rem);font-weight:700;color:#0f766e}
+.cert2 .ft{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:22px;text-align:center;flex-wrap:wrap}.cert2 .ft>div{flex:1 1 120px;display:flex;flex-direction:column;font-size:.95rem}.cert2 .ft b{font-size:1.05rem}.cert2 .ft span{color:#4a5170;letter-spacing:.1em;text-transform:uppercase;font-size:.68rem;font-family:'Atkinson Hyperlegible',sans-serif}
+.cert2 .ft>.seal{flex:0 0 86px;width:86px;height:86px;border-radius:50%;background:radial-gradient(circle,#ecc95f,#b8892b);color:#fff;align-items:center;justify-content:center;box-shadow:0 0 0 4px #fffdf8,0 0 0 6px #b8892b}
+.cert2 .sg{margin-top:20px;font-size:.9rem;color:#4a5170}.cert2 .sg i{display:block;width:230px;max-width:70%;border-top:1px solid #1b2440;margin:0 auto 4px}
+@media print{@page{size:landscape;margin:8mm}body.pc main>*:not(.certwrap),body.pc .tip{display:none}}
+</style>
+</head>
+<body>
+<header><div class="logo" aria-hidden="true">📚</div><div class="t"><h1>Community Education Hub</h1><p class="sub" id="greet"></p></div><span class="pill">● Works offline</span><button class="g" onclick="theme()" aria-label="Switch between light and dark">◐ Light / Dark</button></header>
+<nav id="nav" aria-label="Sections"></nav>
+<main id="app"></main><div id="toast" role="status" aria-live="polite"></div>
+<script>
+const TABS=[["learn","My Learning"],["box","Learning Box"],["tool","Teacher Toolkit"],["net","Continuity Network"],["dash","Dashboard"],["train","Digital Skills"],["ask","Ask AI"]];
+const IC=["📦","🧰","🌐","📊","🎓"];
+const TIPS={box:"<b>Your offline library.</b> Tap <b>Load</b> on a resource to put it on the box. Learners can then open it with no internet.",tool:"<b>Three helpers in one place.</b> Build a lesson in seconds, write a quiz, then record scores to see who needs extra help.",net:"<b>Be ready for disruptions.</b> Add your hubs, then tap <b>Activate continuity mode</b> to see the backup plan.",dash:"<b>Your school at a glance.</b> Everything you record in the other tabs appears here automatically.",train:"<b>Learn at your own pace.</b> Choose AI, Word, Excel or PowerPoint, read each short lesson, answer one question and earn a certificate.",learn:"<b>Your classroom in one place.</b> See today’s lessons, notices from your teacher, your scores and the resources shared with you.",ask:"<b>Stuck? Just ask.</b> Teachers and students can type a question or tap a quick help button to get a clear answer in seconds."};
+const MODS=[
+["What AI is and isn’t","AI tools predict likely text. They can sound confident and still be wrong.","An AI tool gives you a lesson fact. What should you do first?",["Share it with learners","Check it against a trusted source","Ignore AI completely"],1],
+["Writing good prompts","Give the grade, topic, time and available materials. Clear context gives more useful drafts.","Which prompt is strongest?",["Make a lesson","Grade 5 fractions, 40 minutes, no projector, mixed ability","Fractions"],1],
+["Privacy and safe use","Never enter learners’ names, photos or personal details into AI tools.","What can you safely paste into an AI tool?",["A learner’s full name and marks","A class list","A generic topic and grade level"],2],
+["AI in assessment","Use AI to draft questions, then review them for accuracy, fairness and curriculum fit.","Who is responsible for the final assessment?",["The AI tool","The teacher","Nobody"],1],
+["Styles and headings","Use Heading 1, Heading 2 and Normal from the Home tab instead of making text big and bold by hand. Styles keep documents consistent and let Word build a table of contents for you.","Why use the built-in Heading styles?",["They look nicer than bold text","They keep formatting consistent and enable a table of contents","They make the file smaller"],1,"word"],
+["Tables and lists","Use Insert > Table for data in rows and columns. Use bullets or numbering for lists. Never line text up by pressing the space bar.","What is the best way to line up columns of text?",["Press the space bar many times","Use a table or tab stops","Use different font sizes"],1,"word"],
+["Track changes and mail merge","Use Review > Track Changes when a colleague edits your document. Use Mailings > Start Mail Merge to produce personalised letters, such as report cards.","Which feature shows who changed what in a shared document?",["Track Changes","Word Count","Page Break"],0,"word"],
+["Cells, rows and columns","Each box is a cell, named by its column letter and row number, such as B3. Type data in rows with one heading for each column.","What is the cell in column C, row 5 called?",["5C","C5","CC5"],1,"excel"],
+["Formulas and SUM","Every formula starts with =. =SUM(B2:B10) adds a range and =AVERAGE(B2:B10) finds the mean. Use them for class totals and averages.","Which formula adds the numbers in B2 to B10?",["=SUM(B2:B10)","SUM B2-B10","=ADD(B2,B10)"],0,"excel"],
+["Sorting and filtering","Select your headings and choose Data > Filter to show only some rows, such as learners below 50. Data > Sort puts names or scores in order.","How can you show only learners who scored below 50?",["Delete the other rows","Use Data > Filter","Change the font colour"],1,"excel"],
+["Charts and IF","Select your data and choose Insert > Chart to make a graph. A formula like =IF(B2<50,\"Support\",\"OK\") labels each learner automatically.","What does =IF(B2<50,\"Support\",\"OK\") show when B2 is 42?",["OK","Support","An error"],1,"excel"],
+["Slides and layouts","Pick a layout from Home > Layout. Keep one idea on each slide with large text and few words. Put the detail in your speaker notes.","What is good practice for slide text?",["Fill the slide with small text","One idea per slide with few words","Use many different fonts"],1,"ppt"],
+["Themes and pictures","Use Design > Themes for a consistent look. Add pictures with Insert > Pictures and keep strong contrast between text and background.","Why choose one theme for the whole deck?",["It keeps the look consistent","It adds animation","It saves your file"],0,"ppt"],
+["Presenting well","Press F5 to start the slideshow and Esc to leave it. Use Presenter View to see your notes and Rehearse Timings to practise.","Which key starts the slideshow?",["F5","F1","Tab"],0,"ppt"]];
+const SEED={tab:"box",boxName:"Box 01",res:[
+{t:"Grade 4 Fractions Pack",s:"Maths",g:"4",ty:"PDF",mb:12,y:1},{t:"The Water Cycle (video)",s:"Science",g:"5",ty:"Video",mb:180,y:1},
+{t:"Level 2 Story Readers",s:"English",g:"2",ty:"eBook",mb:30,y:0},{t:"Teacher Guide: Mixed-ability Classes",s:"Pedagogy",g:"All",ty:"PDF",mb:6,y:1}],
+hubs:[{n:"Central Community Hall",ch:["Hub","Printed packs"],on:1},{n:"St. Mary’s Primary",ch:["Offline devices","Radio"],on:1},{n:"Riverside Learning Centre",ch:["SMS","Printed packs"],on:1}],
+disrupt:0,scores:[],plans:0,tr:{},name:""};
+let S;try{S=Object.assign({},SEED,JSON.parse(localStorage.getItem("ceh")||"{}"))}catch(e){S=JSON.parse(JSON.stringify(SEED))}
+const save=()=>{try{localStorage.setItem("ceh",JSON.stringify(S))}catch(e){}};
+const E=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const $=id=>document.getElementById(id);const v=id=>$(id).value.trim();
+let AS=[],PLAN="",rf={s:"All"};
+function go(t){S.tab=t;save();draw();scrollTo(0,0)}
+function draw(){
+const h=new Date().getHours();$("greet").textContent=(h<12?"Good morning":h<17?"Good afternoon":"Good evening")+", teacher. Pick a tool to get started.";
+$("nav").innerHTML=TABS.map(([k,n],i)=>`<button aria-current="${S.tab==k}" onclick="go('${k}')"><span class="ic">${IC[i]}</span>${n}</button>`).join("");
+$("app").innerHTML=`<div class="tip"><span class="em">${IC[TABS.findIndex(t=>t[0]==S.tab)]}</span><div>${TIPS[S.tab]}</div></div>`+({box,tool,net,dash,train})[S.tab]()}
+
+/* 1 Learning Box */
+function box(){const used=S.res.filter(r=>r.y).reduce((a,r)=>a+r.mb,0),cap=1000,subs=["All",...new Set(S.res.map(r=>r.s))];
+const list=S.res.map((r,i)=>({r,i})).filter(o=>rf.s=="All"||o.r.s==rf.s);
+return `<div class="card"><h2>Community Learning Box</h2><p class="mut">Choose what is loaded onto the portable server. Learners connect to the box’s local Wi-Fi and open resources with no internet.</p>
+<div class="row"><div><label>Box name</label><input id="bn" value="${E(S.boxName)}" onchange="S.boxName=this.value;save()"></div>
+<div><label>Storage used (1 GB demo box)</label><div class="stat">${used} MB</div><div class="bar"><i style="width:${Math.min(100,used/cap*100)}%"></i></div></div></div>
+<p class="mut">Learners join Wi-Fi “${E(S.boxName)}” and open <b>learn.box</b> in a browser.</p></div>
+<div class="card"><h3>Resource library</h3><label for="rfs">Filter by subject</label><select id="rfs" onchange="rf.s=this.value;draw()">${subs.map(s=>`<option ${s==rf.s?"selected":""}>${E(s)}</option>`).join("")}</select>
+${list.map(({r,i})=>`<div class="item"><div><b>${E(r.t)}</b><br><span class="mut">${E(r.s)} · Grade ${E(r.g)} · ${E(r.ty)} · ${r.mb} MB</span></div>
+<div><span class="tag ${r.y?"on":"off"}">${r.y?"On the box":"Not loaded"}</span> <button class="g" onclick="S.res[${i}].y^=1;save();draw()">${r.y?"Remove":"Load"}</button></div></div>`).join("")||'<p class="mut">No resources for this subject.</p>'}</div>
+<div class="card"><h3>Add a resource</h3><div class="row"><div><label>Title</label><input id="rt"></div><div><label>Subject</label><input id="rs"></div><div><label>Grade</label><input id="rg"></div>
+<div><label>Type</label><select id="ry"><option>PDF</option><option>Video</option><option>eBook</option><option>Audio</option><option>Worksheet</option></select></div><div><label>Size (MB)</label><input id="rm" type="number" min="1" value="10"></div></div>
+<p><button class="b" onclick="addRes()">Add to library</button></p></div>`}
+function addRes(){if(!v("rt")||!v("rs"))return alert("Enter a title and subject.");S.res.push({t:v("rt"),s:v("rs"),g:v("rg")||"All",ty:v("ry"),mb:+v("rm")||1,y:1});save();draw()}
+
+/* 2 Toolkit */
+function tool(){return `<div class="card"><h2>Lesson plan builder</h2><p class="mut">Builds a structured draft you can edit. Works fully offline.</p>
+<div class="row"><div><label>Subject</label><input id="ls" placeholder="Maths"></div><div><label>Grade</label><input id="lg" placeholder="5"></div><div><label>Topic</label><input id="lt" placeholder="Equivalent fractions"></div>
+<div><label>Minutes</label><input id="lm" type="number" value="40"></div><div><label>Resources</label><select id="lr"><option value="0">Board and chalk only</option><option value="1">Printed worksheets</option><option value="2">Tablet or box devices</option></select></div></div>
+<p><button class="b" onclick="mkPlan()">Build lesson plan</button> ${PLAN?`<button class="g" onclick="navigator.clipboard&&navigator.clipboard.writeText(PLAN)">Copy</button> <button class="g" onclick="print()">Print</button>`:""}</p>${PLAN?`<label for="plan">Edit your plan here</label><textarea id="plan" rows="22" oninput="PLAN=this.value" style="line-height:1.6">${E(PLAN)}</textarea><p><button class="b" onclick="savePlan()">Save to my plans</button></p>`:""}${savedPlans()}</div>
+<div class="card"><h2>Assessment builder</h2><div class="row"><div><label>Topic</label><input id="at" placeholder="Equivalent fractions"></div><div><label>Question</label><input id="aq"></div>
+<div><label>Format</label><select id="af"><option>Short answer</option><option>Multiple choice</option><option>Problem solving</option></select></div><div><label>Marks</label><input id="am" type="number" value="2"></div></div>
+<p><button class="b" onclick="addQ()">Add question</button> ${AS.length?`<button class="g" onclick="AS=[];draw()">Clear</button> <button class="g" onclick="print()">Print</button>`:""}</p>
+${AS.map((q,i)=>`<div class="item"><span>${i+1}. ${E(q.q)} <span class="tag">${E(q.f)}</span></span><b>${q.m} marks</b></div>`).join("")}${AS.length?`<p><b>Total: ${AS.reduce((a,q)=>a+q.m,0)} marks</b></p>`:""}</div>
+<div class="card"><h2>Learning gap tracker</h2><p class="mut">Record scores by topic. Topics averaging below 50% are flagged for reteaching.</p>
+<div class="row"><div><label>Class</label><input id="sc" placeholder="Grade 5A"></div><div><label>Topic</label><input id="st" placeholder="Fractions"></div><div><label>Learners assessed</label><input id="sn" type="number" min="1"></div><div><label>Average score (%)</label><input id="sa" type="number" min="0" max="100"></div></div>
+<p><button class="b" onclick="addSc()">Save scores</button></p>${byTopic().length?gaps():'<p class="mut">No scores recorded yet. Add a class result above.</p>'}</div>`+learnerCard()+noticeCard()}
+function mkPlan(){const s=v("ls"),g=v("lg"),t=v("lt"),m=+v("lm")||40;if(!s||!t)return alert("Enter a subject and topic.");const r=v("lr");
+const a=Math.round(m*.15),b=Math.round(m*.5),c=Math.round(m*.2),d=m-a-b-c;
+const mat=["board and chalk; learners use exercise books","printed worksheets shared in pairs","box devices in groups of 3–4, with paper backup"][r];
+CPID=0;PLAN=`LESSON PLAN: ${t}\n${s} · Grade ${g||"—"} · ${m} minutes\n\nOBJECTIVES\n• Explain the main idea of ${t} in their own words.\n• Apply ${t} to two familiar problems.\n• Self-check their work against a worked example.\n\nMATERIALS\n${mat}\n\nSTARTER (${a} min)\nAsk 3 quick questions on prior knowledge. Learners answer on mini-boards or by showing hands.\n\nTEACH AND MODEL (${b} min)\nIntroduce ${t} with one real local example. Work one example aloud, then a second together, then learners try one alone.\n\nPRACTICE (${c} min)\nPairs solve 4 graded problems: 2 core, 1 stretch, 1 support. Circulate and note who is stuck.\n\nCHECK AND CLOSE (${d} min)\nExit question: each learner writes one sentence on what ${t} means. Collect and sort into got it / nearly / not yet.\n\nDIFFERENTIATION\nSupport: sentence starters and a worked example. Stretch: create a problem for a partner.\n\nFOLLOW-UP\nRecord the sort in the Learning gap tracker.`;S.plans++;save();draw()}
+function addQ(){if(!v("aq"))return alert("Enter a question.");AS.push({q:v("aq"),f:v("af"),m:+v("am")||1});draw()}
+function addSc(){if(!v("st")||v("sa")==="")return alert("Enter a topic and average score.");S.scores.push({c:v("sc")||"Class",t:v("st"),n:+v("sn")||1,a:Math.min(100,Math.max(0,+v("sa")))});save();draw()}
+function byTopic(){const m={};(S.ls||[]).forEach(x=>{(m[x.t]=m[x.t]||{n:0,w:0}).n+=1;m[x.t].w+=x.s});S.scores.forEach(x=>{(m[x.t]=m[x.t]||{n:0,w:0}).n+=x.n;m[x.t].w+=x.a*x.n});return Object.entries(m).map(([t,o])=>({t,a:Math.round(o.w/o.n),n:o.n})).sort((x,y)=>x.a-y.a)}
+function gaps(){return byTopic().map(o=>`<div class="item"><div style="flex:1;min-width:180px"><b>${E(o.t)}</b> <span class="mut">${o.a}% · ${o.n} learners</span><div class="bar"><i class="${o.a<50?"low":""}" style="width:${o.a}%"></i></div></div><span class="tag ${o.a<50?"off":"on"}">${o.a<50?"Reteach":"On track"}</span></div>`).join("")}
+
+/* 3 Continuity */
+function net(){const chs=["Hub","Printed packs","Offline devices","Radio","SMS","Download"];
+return `<div class="card"><h2>Learning Continuity Network</h2><p class="mut">If schools close or connectivity fails, switch on continuity mode to see how each hub keeps learners going.</p>
+<p><button class="b" onclick="S.disrupt^=1;save();draw()">${S.disrupt?"Return to normal operations":"Activate continuity mode"}</button></p></div>
+${S.disrupt?`<div class="alert"><b>Continuity mode is on.</b> Each hub below falls back to its available channels. Prioritise the box, printed packs and radio or SMS where internet is down.</div>`:""}
+<div class="card"><h3>Hubs and channels</h3>${S.hubs.map((h,i)=>`<div class="item"><div><b>${E(h.n)}</b><br>${h.ch.map(c=>`<span class="tag">${E(c)}</span>`).join(" ")}
+${S.disrupt?`<br><span class="mut">Fallback: ${h.ch.length?E(h.ch[0]):"no channel set"}${h.ch.length>1?" then "+E(h.ch[1]):""}</span>`:""}</div>
+<div><span class="tag ${h.on?"on":"off"}">${h.on?"Active":"Offline"}</span> <button class="g" onclick="S.hubs[${i}].on^=1;save();draw()">${h.on?"Mark offline":"Mark active"}</button></div></div>`).join("")}</div>
+<div class="card"><h3>Add a hub</h3><div class="row"><div><label>Hub name</label><input id="hn"></div><div><label>Channels</label><select id="hc" multiple size="6">${chs.map(c=>`<option>${c}</option>`).join("")}</select></div></div>
+<p class="mut">Hold Ctrl or Cmd to select several channels.</p><p><button class="b" onclick="addHub()">Add hub</button></p></div>`}
+function addHub(){if(!v("hn"))return alert("Enter a hub name.");S.hubs.push({n:v("hn"),ch:[...$("hc").selectedOptions].map(o=>o.value),on:1});save();draw()}
+
+/* 4 Dashboard */
+function dash(){const on=S.hubs.filter(h=>h.on).length,t=byTopic(),learners=S.scores.reduce((a,x)=>a+x.n,0)+(S.ls||[]).length,loaded=S.res.filter(r=>r.y).length,low=t.filter(x=>x.a<50);
+const done=Object.keys(S.tr).length;
+return `<div class="row"><div class="card"><div class="stat">${loaded}/${S.res.length}</div>resources on the box</div><div class="card"><div class="stat">${on}/${S.hubs.length}</div>hubs active</div>
+<div class="card"><div class="stat">${learners}</div>learner results recorded</div><div class="card"><div class="stat">${done}/${MODS.length}</div>training modules passed</div></div>
+${S.disrupt?'<div class="alert"><b>Continuity mode is on.</b> Check hub status in the Continuity Network.</div>':""}
+<div class="card"><h2>Priorities for teachers and administrators</h2>${low.length?low.map(x=>`<div class="item"><span><b>${E(x.t)}</b> averages ${x.a}%</span><span class="tag off">Plan reteaching</span></div>`).join(""):`<p class="mut">${S.scores.length?"No topics below 50%. Keep monitoring.":"Record class scores in the Teacher Toolkit to see learning gaps here."}</p>`}
+${S.hubs.filter(h=>!h.on).map(h=>`<div class="item"><span><b>${E(h.n)}</b> is offline</span><span class="tag off">Follow up</span></div>`).join("")}</div>
+<div class="card"><h2>Average score by topic</h2>${t.length?gaps():'<p class="mut">No data yet.</p>'}</div>
+<div class="card"><h2>Activity</h2><p>${S.plans} lesson plans built · ${S.res.length-loaded} resources waiting to be loaded · ${S.hubs.filter(h=>h.ch.includes("Printed packs")).length} hubs distributing printed packs</p>
+<button class="g noprint" onclick="print()">Print report</button></div>`+peopleCard()+backupCard()}
+
+/* 5 Training */
+function train(){const done=Object.keys(S.tr).length,all=done==MODS.length;
+return `<div class="card"><h2>Teacher AI literacy training</h2><p class="mut">Four short modules on using AI tools responsibly. Pass every quiz to earn your certificate.</p><div class="bar"><i style="width:${done/MODS.length*100}%"></i></div><p>${done} of ${MODS.length} complete</p></div>
+${MODS.map((m,i)=>`<div class="card"><h3>Module ${i+1}: ${m[0]} ${S.tr[i]?'<span class="tag on">Passed</span>':""}</h3><p>${m[1]}</p>
+${S.tr[i]?"":`<p><b>${m[2]}</b></p>${m[3].map((o,j)=>`<div><label style="color:inherit;font-size:1rem"><input type="radio" name="q${i}" value="${j}" style="width:auto"> ${E(o)}</label></div>`).join("")}<p><button class="b" onclick="ans(${i})">Check answer</button> <span id="fb${i}" class="mut"></span></p>`}</div>`).join("")}
+<div class="card"><h2>Certificate</h2>${all?`<div class="row noprint"><div><label>Name on certificate</label><input id="cn" value="${E(S.name)}" onchange="S.name=this.value;save();draw()"></div></div>
+<div class="cert"><p class="mut">Teacher AI Literacy</p><h1>Certificate of completion</h1><p>This certifies that</p><h2>${E(S.name||"Your name")}</h2><p>completed all ${MODS.length} modules on responsible AI use in teaching.</p><p class="mut">${new Date().toLocaleDateString()}</p></div>
+<p class="noprint"><button class="b" onclick="print()">Print certificate</button></p>`:'<p class="mut">Pass all four modules to unlock your certificate.</p>'}</div>`}
+function ans(i){const c=document.querySelector(`input[name=q${i}]:checked`);if(!c)return $("fb"+i).textContent="Select an answer first.";
+if(+c.value==MODS[i][4]){S.tr[i]=1;save();draw()}else $("fb"+i).textContent="Not quite. Re-read the module and try again."}
+try{document.documentElement.dataset.theme=localStorage.getItem("ceh_t")||"dark"}catch(e){}
+function theme(){const d=document.documentElement,n=d.dataset.theme=="dark"?"light":"dark";d.dataset.theme=n;try{localStorage.setItem("ceh_t",n)}catch(e){}}
+let tt;function toast(m,bad){const t=$("toast");t.textContent=(bad?"⚠️ ":"✅ ")+m;t.className="show";clearTimeout(tt);tt=setTimeout(()=>t.className="",2800)}
+window.alert=m=>toast(m,1);
+function party(){if(matchMedia("(prefers-reduced-motion:reduce)").matches)return;for(let i=0;i<28;i++){const s=document.createElement("span");s.className="cf";s.textContent=["🎉","⭐","✨","🎓"][i%4];s.style.left=Math.random()*100+"vw";s.style.animationDelay=Math.random()*.5+"s";document.body.appendChild(s);setTimeout(()=>s.remove(),2600)}}
+const snap=()=>JSON.stringify([S,AS.length,PLAN]);
+[["addRes","Resource added to the library"],["mkPlan","Lesson plan ready"],["addQ","Question added"],["addSc","Scores saved. See the gap list below"],["addHub","Hub added"]].forEach(([f,m])=>{const o=window[f];window[f]=function(){const b=snap();o();if(snap()!=b){toast(m);if(f=="mkPlan"){const p=$("plan");p&&p.scrollIntoView({behavior:"smooth",block:"center"})}}}});
+const oa=window.ans;window.ans=function(i){const n=Object.keys(S.tr).length;oa(i);const k=Object.keys(S.tr).length;if(k>n){toast(k==MODS.length?"All modules passed! Your certificate is ready":"Correct! Module passed");party()}};
+const P={"sparkles":'<path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/><path d="M20 3v4"/><path d="M22 5h-4"/><path d="M4 17v2"/><path d="M5 18H3"/>',"send":'<path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z"/><path d="m21.854 2.147-10.94 10.939"/>',"sheet":'<rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18"/><path d="M3 15h18"/><path d="M9 3v18"/><path d="M15 3v18"/>',"presentation":'<path d="M2 3h20"/><path d="M21 3v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V3"/><path d="m7 21 5-5 5 5"/>',"file-text":'<path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z"/><path d="M14 2v5a1 1 0 0 0 1 1h5"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/>',"book-open":'<path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/>',"package":'<path d="M11 21.73a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73z"/><path d="M12 22V12"/><polyline points="3.29 7 12 12 20.71 7"/><path d="m7.5 4.27 9 5.15"/>',"clipboard-list":'<rect width="8" height="4" x="8" y="2" rx="1" ry="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="M12 11h4"/><path d="M12 16h4"/><path d="M8 11h.01"/><path d="M8 16h.01"/>',"network":'<rect x="16" y="16" width="6" height="6" rx="1"/><rect x="2" y="16" width="6" height="6" rx="1"/><rect x="9" y="2" width="6" height="6" rx="1"/><path d="M5 16v-3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3"/><path d="M12 12V8"/>',"chart-column":'<path d="M3 3v16a2 2 0 0 0 2 2h16"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/>',"graduation-cap":'<path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z"/><path d="M22 10v6"/><path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"/>',"contrast":'<circle cx="12" cy="12" r="10"/><path d="M12 18a6 6 0 0 0 0-12v12z"/>',"circle-check":'<circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/>',"triangle-alert":'<path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/><path d="M12 9v4"/><path d="M12 17h.01"/>'};
+const ICN=["book-open","package","clipboard-list","network","chart-column","graduation-cap","sparkles"];
+const ic=(n,s=24)=>`<svg class="i" xmlns="http://www.w3.org/2000/svg" width="${s}" height="${s}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${P[n]}</svg>`;
+function draw(){
+const h=new Date().getHours();$("greet").textContent=(h<12?"Good morning":h<17?"Good afternoon":"Good evening")+", teacher. Pick a tool to get started.";
+document.querySelector(".logo").innerHTML=ic("book-open",30);
+document.querySelector("header .g").innerHTML=ic("contrast",18)+" Light / Dark";
+$("nav").innerHTML=TABS.map(([k,n],i)=>`<button aria-current="${S.tab==k}" onclick="go('${k}')"><span class="ic">${ic(ICN[i],26)}</span>${n}</button>`).join("");
+$("app").innerHTML=`<div class="tip"><span class="em">${ic(ICN[TABS.findIndex(t=>t[0]==S.tab)],34)}</span><div>${TIPS[S.tab]}</div></div>`+({box,tool,net,dash,train,ask})[S.tab]()}
+window.toast=function(m,bad){const t=$("toast");t.innerHTML=ic(bad?"triangle-alert":"circle-check",20)+"<span>"+E(m)+"</span>";t.className="show";clearTimeout(tt);tt=setTimeout(()=>t.className="",2800)};
+window.party=function(){if(matchMedia("(prefers-reduced-motion:reduce)").matches)return;const c=["var(--ac)","var(--ac2)","var(--sg)","var(--bad)"];for(let i=0;i<36;i++){const s=document.createElement("span");s.className="cf";s.style.cssText=`left:${Math.random()*100}vw;background:${c[i%4]};animation-delay:${Math.random()*.5}s;width:${6+Math.random()*6}px;height:${10+Math.random()*8}px;border-radius:2px`;document.body.appendChild(s);setTimeout(()=>s.remove(),2600)}};
+const COURSES=[["ai","AI literacy","sparkles"],["word","Microsoft Word","file-text"],["excel","Microsoft Excel","sheet"],["ppt","PowerPoint","presentation"]];
+const cm=c=>MODS.map((m,i)=>[m,i]).filter(([m])=>(m[5]||"ai")==c);
+function train(){const cur=COURSES.find(c=>c[0]==TC),ms=cm(TC),dn=ms.filter(([,i])=>S.tr[i]).length,all=dn==ms.length;
+return `<div class="card"><h2>Digital skills training</h2><p class="mut">Pick a course, read each short lesson and answer one question. Pass every lesson to earn that course’s certificate.</p><div class="row">${COURSES.map(c=>{const m=cm(c[0]),d=m.filter(([,i])=>S.tr[i]).length;return `<button class="crs" aria-pressed="${c[0]==TC}" onclick="TC='${c[0]}';draw()">${ic(c[2],26)}<b>${c[1]}</b><span class="mut">${d} of ${m.length} complete</span><div class="bar"><i style="width:${d/m.length*100}%"></i></div></button>`}).join("")}</div></div>
+${ms.map(([m,i],n)=>`<div class="card"><h3>Lesson ${n+1}: ${m[0]} ${S.tr[i]?'<span class="tag on">Passed</span>':""}</h3><p>${m[1]}</p>${S.tr[i]?"":`<p><b>${m[2]}</b></p>${m[3].map((o,j)=>`<div><label style="color:inherit;font-size:1rem"><input type="radio" name="q${i}" value="${j}"> ${E(o)}</label></div>`).join("")}<p><button class="b" onclick="ans(${i})">Check answer</button> <span id="fb${i}" class="mut"></span></p>`}</div>`).join("")}
+<div class="card"><h2>Certificate: ${cur[1]}</h2>${all?`<div class="row noprint"><div><label>Name on certificate</label><input id="cn" value="${E(S.name)}" onchange="S.name=this.value;save();draw()"></div></div><div class="cert"><p class="mut">Community Education Hub</p><h1>Certificate of completion</h1><p>This certifies that</p><h2>${E(S.name||"Your name")}</h2><p>completed the <b>${cur[1]}</b> course.</p><p class="mut">${new Date().toLocaleDateString()}</p></div><p class="noprint"><button class="b" onclick="print()">Print certificate</button></p>`:`<p class="mut">Pass all ${ms.length} lessons in this course to unlock the certificate.</p>`}</div>`}
+const CHIPS=[["Explain simply","Explain this in simple words with an example: "],["Make a quiz","Write 5 quiz questions with answers on: "],["Excel formula","Help me with an Excel formula. I want to: "],["Word help","Show me how to do this in Microsoft Word: "],["PowerPoint help","Show me how to do this in PowerPoint: "],["Lesson ideas","Give me 3 low-resource activity ideas for teaching: "],["Summarise","Summarise this in 5 bullet points: "]];
+const QT=[["Word","Ctrl+B bold · Ctrl+I italic · Ctrl+S save · Ctrl+Enter new page"],["Excel","=SUM(B2:B10) adds · =AVERAGE() finds the mean · F4 locks a cell reference"],["PowerPoint","Ctrl+M new slide · F5 start show · B blanks the screen during a show"],["Everywhere","Ctrl+Z undo · Ctrl+F find · Ctrl+P print · Ctrl+C and Ctrl+V copy and paste"]];
+let SM=null,CH=[],WHO="teacher",BUSY=0,TC="ai";
+try{window.claude&&claude.use("sample").then(x=>{SM=x;if(S.tab=="ask"&&!CH.length)draw()}).catch(()=>{})}catch(e){}
+const sys=()=>`You are a friendly assistant inside a community education app used by teachers and students, often in low-resource settings. ${WHO=="student"?"The user is a student. Explain simply, guide them to understand instead of just handing over homework answers, and be encouraging.":"The user is a teacher. Be practical, concise and classroom-ready."} Use short sentences and plain language. For Microsoft Word, Excel and PowerPoint questions, give numbered steps with exact menu names and keyboard shortcuts. Never ask for personal details. If unsure, say so. Keep answers under 200 words unless asked for more.`;
+const fmt=t=>E(t).replace(/\*\*(.+?)\*\*/g,"<b>$1</b>").replace(/\n/g,"<br>");
+function chatHTML(){return CH.length?CH.map(m=>`<div class="msg ${m.r}"><b class="w">${m.r=="user"?"You":"Assistant"}</b>${fmt(m.t)}</div>`).join(""):'<p class="mut">No messages yet. Tap a quick help button or type a question below.</p>'}
+function upd(){const c=$("chat");if(c){c.innerHTML=chatHTML();c.scrollTop=c.scrollHeight}}
+function chip(i){const q=$("q");q.value=CHIPS[i][1];q.focus()}
+async function sendQ(){const q=$("q"),t=q.value.trim();if(!t)return toast("Type a question first.",1);if(!SM)return toast("AI is not available right now. Check your internet connection.",1);if(BUSY)return;BUSY=1;q.value="";CH.push({r:"user",t});const a={r:"assistant",t:"Thinking…"};CH.push(a);upd();
+const e=CH.length-1,msgs=CH.slice(Math.max(0,e-7),e).map((m,i)=>({role:m.r,content:i==0?sys()+"\n\n"+m.t:m.t}));
+try{const r=await SM(msgs,{cache:false,onText:({text})=>{a.t=text;upd()}});a.t=r.text}catch(x){a.t=x&&x.code=="rate_limited"?"Too many questions at once. Please wait a moment and try again.":x&&x.code=="not_granted"?"AI access was not allowed. Reload the page and allow it when asked.":"Sorry, I could not get an answer. Check your internet connection and try again."}
+BUSY=0;upd()}
+function ask(){return `<div class="card"><h2>Ask AI</h2><p class="mut">Get quick help with questions or tasks. Answers are drafts, so always check important facts.</p>
+<div class="row"><div><label for="who">I am a</label><select id="who" onchange="WHO=this.value"><option value="teacher" ${WHO=="teacher"?"selected":""}>Teacher</option><option value="student" ${WHO=="student"?"selected":""}>Student</option></select></div></div>
+<h3>Quick help</h3><div class="chips">${CHIPS.map((c,i)=>`<button class="g" onclick="chip(${i})">${c[0]}</button>`).join("")}</div>
+<div id="chat" class="chat" aria-live="polite">${chatHTML()}</div>
+<div class="row" style="align-items:flex-end"><div style="flex:4 1 240px"><label for="q">Your question</label><textarea id="q" rows="2" placeholder="For example: How do I add up a column in Excel?" onkeydown="if(event.key=='Enter'&&!event.shiftKey){event.preventDefault();sendQ()}"></textarea></div><div style="flex:0 0 auto"><button class="b" onclick="sendQ()">${ic("send",18)} Send</button></div></div>
+${SM?"":'<p class="mut">The AI helper needs an internet connection. The quick tips below work offline.</p>'}</div>
+<div class="card"><h3>Offline quick tips</h3>${QT.map(t=>`<div class="item"><b>${t[0]}</b><span class="mut">${t[1]}</span></div>`).join("")}</div>`}
+Object.assign(P,{"download":'<path d="M12 15V3"/><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/>',"upload":'<path d="M12 3v12"/><path d="m17 8-5-5-5 5"/><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>'});
+QT.push(["Excel","Ctrl+; today’s date · Ctrl+Shift+L turns filters on or off · =COUNTIF(B2:B30,\"<50\") counts low scores"],["Word","Ctrl+A select all · Ctrl+K add a link · Home > Styles for headings · Review > Spelling checks your work"],["PowerPoint","Ctrl+D copy a slide · Esc leaves the show · View > Notes to add speaker notes"],["Teaching","Starter: 3 quick questions · Teach: model one example · Practise in pairs · Close with one exit question"]);
+function backupCard(){return `<div class="card noprint"><h2>Backup and privacy</h2><p class="mut">Your information is saved only on this device. Download a backup file regularly, keep a copy somewhere safe, and restore it on another device if needed.</p><p><button class="b" onclick="expo()">${ic("download",18)} Download backup</button> <label class="g" style="display:inline-flex;cursor:pointer;gap:8px;align-items:center;margin:0;color:var(--ink)">${ic("upload",18)} Restore backup<input type="file" accept=".json,application/json" hidden onchange="impo(this.files[0])"></label></p><p class="mut">Privacy: record class averages and learner counts, not names or personal details. Never type children’s names into the Ask AI box.</p></div>`}
+async function expo(){try{const d=await claude.use("downloads");if(!d)return toast("Saving files is not available here.",1);await d.save({filename:"community-education-backup-"+new Date().toISOString().slice(0,10)+".json",data:new Blob([JSON.stringify(S,null,2)],{type:"application/json"})});toast("Backup ready")}catch(e){if(!e||e.code!="declined")toast("The backup was not saved.",1)}}
+function impo(f){if(!f)return;const r=new FileReader();r.onload=()=>{try{const d=JSON.parse(r.result);if(!d||!Array.isArray(d.res)||!Array.isArray(d.hubs))throw 0;Object.assign(S,SEED,d);save();toast("Backup restored");draw()}catch(e){toast("That file is not a valid backup.",1)}};r.readAsText(f)}
+Object.assign(P,{"log-out":'<path d="m16 17 5-5-5-5"/><path d="M21 12H9"/><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>',"award":'<path d="m15.477 12.89 1.515 8.526a.5.5 0 0 1-.81.47l-3.58-2.687a1 1 0 0 0-1.197 0l-3.586 2.686a.5.5 0 0 1-.81-.469l1.514-8.526"/><circle cx="12" cy="8" r="6"/>'});
+S.users=S.users||[];S.lp=S.lp||[];S.rost=S.rost||{};S.ls=S.ls||[];
+let cl="",CPID=0,AU={teacher:"login",student:"login"};
+const U=()=>S.users.find(u=>u.id==S.cur);{const c=U();S.tr=c?c.tr:{}}
+{const _b=backupCard;window.backupCard=()=>_b().replace(/Privacy:[^<]*/,"Privacy: this device holds learner names and scores. Keep backups private, share them only with people who need them, and never type children\u2019s personal details into the Ask AI box.")}
+async function hash(e,p){const s="ceh|"+e+"|"+p;try{const b=await crypto.subtle.digest("SHA-256",new TextEncoder().encode(s));return[...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,"0")).join("")}catch(x){let h=5381;for(const c of s)h=(h*33^c.codePointAt(0))>>>0;return"f"+h}}
+async function signup(r){const g=k=>$(r+k)?$(r+k).value.trim():"",name=g("n"),email=g("e").toLowerCase(),pw=$(r+"p").value;
+if(name.split(/\s+/).length<2)return toast("Enter your full name (first and last name).",1);
+if(!/^\S+@\S+\.\S+$/.test(email))return toast("Enter a valid email address.",1);
+if(pw.length<(r=="student"?4:6))return toast(r=="student"?"Choose a PIN or password of at least 4 characters.":"Choose a password of at least 6 characters.",1);
+if(!g("s"))return toast("Enter your school or organisation.",1);
+if(!$(r+"c").checked)return toast("Please tick the consent box.",1);
+if(S.users.some(u=>u.email==email))return toast("That email already has an account. Try logging in.",1);
+const u={id:"u"+Date.now().toString(36)+Math.random().toString(36).slice(2,5),role:r,name,email,pw:await hash(email,pw),school:g("s"),x:g("x"),phone:g("f"),tr:{}};
+S.users.push(u);S.cur=u.id;S.tr=u.tr;S.tab=r=="teacher"?"box":"train";save();draw();toast("Welcome, "+name.split(" ")[0]+"! You are saved on this device. Next time, tap your name to log in.")}
+async function login(r){const e=$(r+"e").value.trim().toLowerCase(),u=S.users.find(x=>x.email==e&&x.role==r);if(!u||u.pw!=await hash(e,$(r+"p").value))return toast("Email or password is not correct. New here? Choose Sign up.",1);S.cur=u.id;S.tr=u.tr;save();draw();toast("Welcome back, "+u.name.split(" ")[0])}
+function logout(){S.cur=null;S.tr={};save();draw()}
+function authPanel(r){const m=AU[r],T=r=="teacher",f=(k,l,t,ph)=>`<div><label for="${r}${k}">${l}</label><input id="${r}${k}" type="${t||"text"}" placeholder="${ph||""}"></div>`;
+return `<div class="card" style="flex:1 1 320px"><h2 style="display:flex;gap:10px;align-items:center">${ic(T?"presentation":"graduation-cap",26)} ${T?"Teacher":"Student"} corner</h2><p class="mut">${T?"Build lessons, record learner scores and track your class.":"Learn Word, Excel, PowerPoint and AI skills and earn certificates."}</p>
+<div class="chips" style="margin-bottom:12px"><button class="g" aria-pressed="${m=="login"}" onclick="AU.${r}='login';draw()">Log in</button><button class="g" aria-pressed="${m=="signup"}" onclick="AU.${r}='signup';draw()">Sign up</button></div>
+<div style="display:grid;gap:10px">${m=="login"?picker(r)+f("e","Email","email")+f("p","Password","password"):f("n","Full name (printed on your certificate)","text","First and last name")+f("e","Email","email")+f("p",T?"Password (6 or more characters)":"PIN or password (4 or more)","password")+f("s",T?"School or organisation":"School or community centre")+f("x",T?"Subject you teach":"Class or grade")+f("f",T?"Phone (optional)":"Phone or guardian contact (optional)","tel")+`<label style="display:flex;gap:8px;align-items:flex-start;color:inherit;font-size:.9rem"><input type="checkbox" id="${r}c" style="width:22px;height:22px;min-height:0;flex:none"> I agree my details are stored on this device to run this service and appear on my certificate.</label>`}</div>
+<p><button class="b" onclick="${m=="login"?"login":"signup"}('${r}')">${m=="login"?"Log in":"Create my account"}</button></p></div>`}
+const authView=()=>`<div class="row">${["teacher","student"].map(authPanel).join("")}</div>${stBanner()}<div class="card noprint"><h3>Returning on a new device or browser?</h3><p class="mut">Restore your account file or a full backup, then tap your name and log in.</p><label class="g" style="display:inline-flex;cursor:pointer;gap:8px;align-items:center;margin:0;color:var(--ink)">${ic("upload",18)} Restore from file<input type="file" accept=".json,application/json" hidden onchange="impo(this.files[0])"></label></div><p class="mut">Accounts are kept on this device only. This is a convenience login, not secure server-level protection.</p>`;
+function savedPlans(){const l=S.lp.filter(p=>p.o==S.cur);return l.length?`<h3>My saved plans</h3>${l.map(p=>`<div class="item"><b>${E(p.t)}</b><span>${p.pub?'<span class="tag on">Shared</span> ':""}<button class="g" onclick="pubPlan(${p.id})">${p.pub?"Unshare":"Share with students"}</button> <button class="g" onclick="openPlan(${p.id})">Open</button> <button class="g" onclick="delPlan(${p.id})">Delete</button></span></div>`).join("")}`:""}
+function savePlan(){const t=(PLAN.split("\n")[0]||"Lesson plan").replace("LESSON PLAN: ",""),x=S.lp.find(p=>p.id==CPID);if(x){x.txt=PLAN;x.t=t}else{CPID=Date.now();S.lp.push({id:CPID,o:S.cur,t,txt:PLAN})}save();draw();toast("Plan saved")}
+function openPlan(id){const p=S.lp.find(x=>x.id==id);if(p){PLAN=p.txt;CPID=id;draw();$("plan").scrollIntoView({behavior:"smooth",block:"center"})}}
+function delPlan(id){S.lp=S.lp.filter(p=>p.id!=id);if(CPID==id)CPID=0;save();draw()}
+function addLn(){const c=v("nc"),n=v("nl");if(!c||!n)return toast("Enter a class and the learner\u2019s full name.",1);(S.rost[c]=S.rost[c]||[]).push(n);cl=c;save();draw();toast(n+" added to "+c)}
+function rmLn(i){S.rost[cl].splice(i,1);save();draw()}
+function saveCl(){const t=v("ct");if(!t)return toast("Enter the topic first.",1);let n=0;S.rost[cl].forEach((l,i)=>{const e=$("sc"+i).value;if(e!==""){S.ls.push({c:cl,l,t,s:Math.min(100,Math.max(0,+e)),d:today()});n++}});if(!n)return toast("Enter at least one score.",1);save();draw();toast(n+" scores saved")}
+function learnerCard(){const cs=Object.keys(S.rost);if(!cs.includes(cl))cl=cs[0]||"";const L=cl?S.rost[cl]:[];
+return `<div class="card"><h2>Learner scores by class</h2><p class="mut">Add each learner to a class, then enter their score for a topic. Scores feed the gap tracker and Dashboard.</p>
+<div class="row"><div><label for="nc">Class</label><input id="nc" list="cld" value="${E(cl)}" placeholder="Grade 5A"><datalist id="cld">${cs.map(c=>`<option value="${E(c)}">`).join("")}</datalist></div><div><label for="nl">Learner full name</label><input id="nl"></div><div style="flex:0 0 auto;align-self:end"><button class="b" onclick="addLn()">Add learner</button></div></div>
+${cs.length?`<h3>Enter scores</h3><div class="row"><div><label for="cs">Class</label><select id="cs" onchange="cl=this.value;draw()">${cs.map(c=>`<option ${c==cl?"selected":""}>${E(c)}</option>`).join("")}</select></div><div><label for="ct">Topic</label><input id="ct" placeholder="Fractions"></div></div>
+${L.map((n,i)=>{const s=S.ls.filter(x=>x.c==cl&&x.l==n),a=s.length?Math.round(s.reduce((t,x)=>t+x.s,0)/s.length):null;return `<div class="item"><div><b>${E(n)}</b> <span class="mut">${a==null?"no scores yet":"average "+a+"% \u00b7 "+s.length+" scores"}</span></div><div style="display:flex;gap:8px"><input id="sc${i}" type="number" min="0" max="100" placeholder="Score %" aria-label="Score for ${E(n)}" style="width:110px"><button class="g" onclick="rmLn(${i})">Remove</button></div></div>`}).join("")||'<p class="mut">No learners in this class yet.</p>'}
+${L.length?`<p><button class="b" onclick="saveCl()">Save scores for this topic</button></p>`:""}`:""}</div>`}
+function certCard(){const u=U(),cur=COURSES.find(c=>c[0]==TC),ms=cm(TC);
+if(!ms.every(([,i])=>S.tr[i]))return `<div class="card"><h2>Certificate: ${cur[1]}</h2><p class="mut">Pass all ${ms.length} lessons in this course to unlock your certificate.</p></div>`;
+const id="CEH-"+TC.toUpperCase()+"-"+u.id.slice(-5).toUpperCase();
+return `<div class="card certwrap"><div class="cert2"><div class="in"><div class="brand">${ic("graduation-cap",30)}<span>COMMUNITY EDUCATION HUB</span></div><div class="ct">Certificate</div><div class="cs">of Completion</div><p class="pr">This certificate is proudly presented to</p><div class="nm">${E(u.name)}</div><p class="dt">${E(u.school)}${u.role=="student"&&u.x?" \u00b7 "+E(u.x):""}</p><p class="pr">for successfully completing the digital skills course</p><div class="cn">${cur[1]}</div><p class="pr">${ms.length} lessons passed</p>
+<div class="ft"><div><b>${new Date().toLocaleDateString(undefined,{day:"numeric",month:"long",year:"numeric"})}</b><span>Date of issue</span></div><div class="seal">${ic("award",44)}</div><div><b>${id}</b><span>Certificate number</span></div></div><div class="sg"><i></i>Programme Director, Community Education Hub</div></div></div>
+<p class="noprint"><button class="b" onclick="printCert()">${ic("download",18)} Print or save as PDF</button></p></div>`}
+function printCert(){document.body.classList.add("pc");print();setTimeout(()=>document.body.classList.remove("pc"),800)}
+{const _t=train;window.train=function(){return _t().replace(/<div class="card"><h2>Certificate:[\s\S]*$/,certCard())}}
+function draw(){const u=U(),h=new Date().getHours(),gt=h<12?"Good morning":h<17?"Good afternoon":"Good evening";
+$("greet").textContent=u?gt+", "+u.name.split(" ")[0]+". Pick a tool to get started.":"Welcome. Log in or sign up to begin.";
+document.querySelector(".logo").innerHTML=ic("book-open",30);
+document.querySelector("header .g").innerHTML=ic("contrast",18)+" Light / Dark";
+document.querySelector(".pill").textContent=u?(u.role=="teacher"?"Teacher view":"Student view"):"\u25cf Works offline";
+let b=$("lo");if(u){if(!b){b=document.createElement("button");b.id="lo";b.className="g";b.onclick=logout;document.querySelector("header").appendChild(b)}b.onclick=swRole;b.innerHTML=ic("users",18)+" "+(u.role=="teacher"?"Student view":"Teacher view")}else if(b)b.remove();
+if(!u){$("nav").innerHTML="";$("app").innerHTML=welcome();return}
+const ok=u.role=="student"?["learn","train","ask"]:TABS.map(t=>t[0]).filter(k=>k!="learn");if(!ok.includes(S.tab))S.tab=ok[0];
+$("nav").innerHTML=TABS.map(([k,n],i)=>ok.includes(k)?`<button aria-current="${S.tab==k}" onclick="go('${k}')"><span class="ic">${ic(ICN[i],26)}</span>${n}</button>`:"").join("");
+$("app").innerHTML=`<div class="tip"><span class="em">${ic(ICN[TABS.findIndex(t=>t[0]==S.tab)],34)}</span><div>${TIPS[S.tab]}</div></div>`+({box,tool,net,dash,train,ask,learn})[S.tab]()+acctCard()}
+S.nt=S.nt||[];
+const today=()=>new Date().toLocaleDateString("en-CA"),norm=s=>String(s).toLowerCase().replace(/\s+/g," ").trim();
+function pubPlan(id){const p=S.lp.find(x=>x.id==id);if(!p)return;p.pub=!p.pub;p.d=today();save();draw();toast(p.pub?"Shared with students for today":"Removed from students")}
+function postNt(){const t=v("nt");if(!t)return toast("Add a title for the notice.",1);S.nt.push({id:Date.now(),t,txt:v("nm"),k:v("nk"),due:v("nd"),d:today()});save();draw();toast("Posted to students")}
+function delNt(id){S.nt=S.nt.filter(n=>n.id!=id);save();draw()}
+function noticeCard(){return `<div class="card"><h2>Student notice board</h2><p class="mut">Post homework, announcements and assignments. Students see them in My Learning.</p><div class="row"><div><label for="nk">Type</label><select id="nk"><option>Announcement</option><option>Homework</option><option>Assignment</option></select></div><div><label for="nt">Title</label><input id="nt"></div><div><label for="nd">Due date (optional)</label><input id="nd" type="date"></div></div><label for="nm" style="margin-top:10px">Message</label><textarea id="nm" rows="2"></textarea><p><button class="b" onclick="postNt()">Post to students</button></p>${S.nt.map(n=>`<div class="item"><span><span class="tag">${E(n.k)}</span> <b>${E(n.t)}</b> <span class="mut">${n.d}</span></span><button class="g" onclick="delNt(${n.id})">Delete</button></div>`).join("")}</div>`}
+function learn(){const u=U(),me=S.ls.filter(x=>norm(x.l)==norm(u.name)),cls=Object.keys(S.rost).find(c=>S.rost[c].some(n=>norm(n)==norm(u.name))),avg=me.length?Math.round(me.reduce((a,x)=>a+x.s,0)/me.length):null,tl=S.lp.filter(p=>p.pub),td=tl.filter(p=>p.d==today()),old=tl.filter(p=>p.d!=today()),nts=[...S.nt].reverse(),res=S.res.filter(r=>r.y);
+return `${S.disrupt?`<div class="alert"><b>Learning continuity mode is on.</b> Keep learning through your nearest hub: ${S.hubs.filter(h=>h.on).map(h=>E(h.n)+" ("+h.ch.map(E).join(", ")+")").join("; ")||"ask your teacher."}</div>`:""}
+<div class="card"><h2>Today’s lessons</h2>${td.length?td.map(p=>`<h3>${E(p.t)}</h3><pre>${E(p.txt)}</pre>`).join(""):'<p class="mut">No lesson has been shared for today yet. Check again later.</p>'}${old.length?`<details><summary>Earlier lessons (${old.length})</summary>${old.map(p=>`<h3>${E(p.t)} <span class="mut">${p.d}</span></h3><pre>${E(p.txt)}</pre>`).join("")}</details>`:""}</div>
+<div class="card"><h2>Notices from your teacher</h2>${nts.length?nts.map(n=>`<div class="item"><div><span class="tag">${E(n.k)}</span> <b>${E(n.t)}</b><br>${E(n.txt)}</div><span class="mut">${n.due?"Due "+n.due:n.d}</span></div>`).join(""):'<p class="mut">No notices right now.</p>'}</div>
+<div class="card"><h2>My scores</h2>${cls?`<p class="mut">Class: ${E(cls)}</p>`:""}${me.length?`<div class="stat">${avg}%</div><p class="mut">overall average from ${me.length} scores</p>${[...me].reverse().map(x=>`<div class="item"><div style="flex:1;min-width:180px"><b>${E(x.t)}</b> <span class="mut">${x.s}%${x.d?" \u00b7 "+x.d:""}</span><div class="bar"><i class="${x.s<50?"low":""}" style="width:${x.s}%"></i></div></div><span class="tag ${x.s<50?"off":"on"}">${x.s<50?"Revise this topic":"Well done"}</span></div>`).join("")}`:'<p class="mut">No scores yet. Your teacher records scores using the full name you signed up with, so check it matches your class list.</p>'}</div>
+<div class="card"><h2>Resources from your teacher</h2>${res.length?res.map(r=>`<div class="item"><div><b>${E(r.t)}</b><br><span class="mut">${E(r.s)} \u00b7 Grade ${E(r.g)} \u00b7 ${E(r.ty)} \u00b7 ${r.mb} MB</span></div></div>`).join(""):'<p class="mut">No resources have been shared yet.</p>'}<p class="mut">On the Learning Box Wi-Fi, open learn.box to use these without internet.</p></div>
+<div class="card"><h2>My digital skills</h2>${COURSES.map(c=>{const m=cm(c[0]),d=m.filter(([,i])=>S.tr[i]).length;return `<div class="item"><span style="display:flex;gap:8px;align-items:center">${ic(c[2],20)} ${c[1]}</span><span class="mut">${d} of ${m.length}</span></div>`}).join("")}<p><button class="b" onclick="go('train')">Continue learning</button></p></div>`}
+let stOK=1;try{localStorage.setItem("ceh_t2","1");stOK=localStorage.getItem("ceh_t2")=="1"}catch(e){stOK=0}
+const stBanner=()=>stOK?"":'<div class="alert"><b>This browser is not keeping saved data.</b> It may be in private mode or blocking storage, so accounts will be lost when you close the page. After signing up, download your account file and restore it next time.</div>';
+const picker=r=>{const l=S.users.filter(x=>x.role==r);return l.length?`<div><label>Saved on this device. Tap your name</label><div class="chips">${l.map(x=>`<button class="g" onclick="pick('${r}','${E(x.email)}')">${E(x.name)}</button>`).join("")}</div></div>`:""};
+function pick(r,e){$(r+"e").value=e;$(r+"p").focus()}
+function acctCard(){const u=U();return `<div class="card noprint"><h3>My account</h3><p class="mut">${E(u.name)} \u00b7 ${E(u.email)} \u00b7 ${u.role=="teacher"?"Teacher":"Student"} \u00b7 ${E(u.school)}</p><p class="mut">You stay signed in on this device until you switch user. To use your account on another device or browser, download your account file and restore it on the sign-in screen.</p><button class="g" onclick="expoMe()">${ic("download",18)} Download my account file</button> <button class="g" onclick="logout()">${ic("log-out",18)} Switch user</button></div>`}
+async function expoMe(){const u=U();try{const d=await claude.use("downloads");if(!d)return toast("Saving files is not available here.",1);await d.save({filename:"my-account-"+u.name.split(" ")[0].toLowerCase()+".json",data:new Blob([JSON.stringify({acct:1,users:[u]},null,2)],{type:"application/json"})});toast("Account file ready. Keep it safe.")}catch(e){if(!e||e.code!="declined")toast("The file was not saved.",1)}}
+function impo(f){if(!f)return;const r=new FileReader();r.onload=()=>{try{const d=JSON.parse(r.result);
+if(d&&d.acct&&Array.isArray(d.users)){let n=0;d.users.forEach(u=>{if(u&&u.email&&u.pw&&!S.users.some(x=>x.email==u.email)){u.tr=u.tr||{};S.users.push(u);n++}});save();draw();return toast(n?"Account restored. Tap your name and log in.":"That account is already on this device.")}
+if(!d||!Array.isArray(d.res)||!Array.isArray(d.hubs))throw 0;Object.assign(S,SEED,d);S.users=S.users||[];S.lp=S.lp||[];S.rost=S.rost||{};S.ls=S.ls||[];S.nt=S.nt||[];const c=U();S.tr=c?c.tr:{};save();toast("Backup restored");draw()}catch(e){toast("That file is not a valid backup.",1)}};r.readAsText(f)}
+Object.assign(P,{"users":'<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>'});
+function wcard(r){const T=r=="teacher",f=(k,l,t,ph)=>`<div><label for="${r}${k}">${l}</label><input id="${r}${k}" type="${t||"text"}" placeholder="${ph||""}"></div>`,sv=S.users.filter(x=>x.role==r);
+return `<div class="card" style="flex:1 1 320px"><h2 style="display:flex;gap:10px;align-items:center">${ic(T?"presentation":"graduation-cap",26)} ${T?"I’m a teacher":"I’m a student"}</h2><p class="mut">${T?"Build lessons, share resources and notices, and record learner scores.":"See today’s lessons, your scores and resources, and earn certificates."}</p>
+${sv.length?`<label>Welcome back. Tap your name</label><div class="chips" style="margin-bottom:12px">${sv.map(x=>`<button class="g" onclick="useUser('${x.id}')">${E(x.name)}</button>`).join("")}</div>`:""}
+<div style="display:grid;gap:10px">${f("n","Full name (printed on certificates)","text","First and last name")+f("e","Email","email")+f("s",T?"School or organisation (optional)":"School or class (optional)")}</div>
+<p><button class="b" onclick="enter('${r}')">Continue as ${T?"teacher":"student"}</button> <button class="g" onclick="demo('${r}')">Explore with a demo profile</button></p></div>`}
+const welcome=()=>`${stBanner()}<div class="row">${["teacher","student"].map(wcard).join("")}</div><div class="card noprint"><h3>Returning on a new device?</h3><label class="g" style="display:inline-flex;cursor:pointer;gap:8px;align-items:center;margin:0;color:var(--ink)">${ic("upload",18)} Restore from file<input type="file" accept=".json,application/json" hidden onchange="impo(this.files[0])"></label></div><p class="mut">Prototype mode: no password is needed. Your name and email are saved on this device and used for your certificate and class lists.</p>`;
+function enter(r){const g=k=>$(r+k).value.trim(),name=g("n"),email=g("e").toLowerCase();if(name.split(/\s+/).length<2)return toast("Enter your full name (first and last name).",1);if(!/^\S+@\S+\.\S+$/.test(email))return toast("Enter a valid email address.",1);mk(r,name,email,g("s"))}
+function mk(r,name,email,school){let u=S.users.find(x=>x.email==email&&x.role==r);if(!u){u={id:"u"+Date.now().toString(36)+Math.random().toString(36).slice(2,5),role:r,name,email,pw:"",school:school||"",x:"",phone:"",tr:{}};S.users.push(u)}else{u.name=name;if(school)u.school=school}useUser(u.id,1)}
+function useUser(id,fresh){const u=S.users.find(x=>x.id==id);if(!u)return;S.cur=id;S.tr=u.tr;(S.last=S.last||{})[u.role]=id;S.tab=u.role=="teacher"?"box":"learn";save();draw();scrollTo(0,0);toast((fresh?"Welcome, ":"Welcome back, ")+u.name.split(" ")[0])}
+function demo(r){mk(r,r=="teacher"?"Demo Teacher":"Demo Student",r+"@demo.example","Demo School")}
+function swRole(){const u=U();if(!u)return;const r=u.role=="teacher"?"student":"teacher",id=(S.last||{})[r];if(id&&S.users.some(x=>x.id==id))useUser(id);else{S.cur=null;S.tr={};save();draw()}}
+function peopleCard(){const L=S.users;return `<div class="card noprint"><h2>People using this prototype</h2><p class="mut">Names and emails collected from teachers and students on this device.</p>${L.length?L.map(x=>`<div class="item"><div><b>${E(x.name)}</b> <span class="tag">${x.role=="teacher"?"Teacher":"Student"}</span><br><a href="mailto:${E(x.email)}" style="color:var(--ac)">${E(x.email)}</a>${x.school?" \u00b7 "+E(x.school):""}</div></div>`).join(""):'<p class="mut">No one has entered their details yet.</p>'}${L.length?`<p><button class="g" onclick="expoCsv()">${ic("download",18)} Download list (CSV)</button></p>`:""}</div>`}
+async function expoCsv(){const q=s=>'"'+String(s).replace(/"/g,'""')+'"',rows=[["Name","Email","Role","School"],...S.users.map(u=>[u.name,u.email,u.role,u.school||""])].map(r=>r.map(q).join(",")).join("\n");try{const d=await claude.use("downloads");if(!d)return toast("Saving files is not available here.",1);await d.save({filename:"people.csv",data:new Blob([rows],{type:"text/csv"})});toast("List ready")}catch(e){if(!e||e.code!="declined")toast("The file was not saved.",1)}}
+draw();
+</script>
+</body>
+</html>
